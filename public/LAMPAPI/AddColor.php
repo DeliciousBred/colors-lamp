@@ -9,7 +9,7 @@
 	$password = ""; // Insert password
 	$database = ""; // Insert database here
 
-	$conn = new mysqli($host, $user, $password, $databse);
+	$conn = new mysqli($host, $user, $password, $database);
 	if ($conn->connect_error) 
 	{
 		returnWithError( $conn->connect_error );
