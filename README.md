@@ -1,4 +1,4 @@
-# Colors Lamp Website
+# Colors LAMP Website
 
 ## Description
 This is an open-source respository for a website that that allows users to login to an account, where they can add colors to their own personalized list of colors and search for any colors they saved.
