@@ -27,6 +27,7 @@ CREATE USER 'TheBeast' IDENTIFIED BY 'WeLoveCOP4331';
 GRANT ALL PRIVILEGES ON COP4331.* TO 'TheBeast'@'%';
 ```
 If you have not already, do not forget to replace the credentials in the php files located in `public/LAMPAPI/` in order for the server to properly connect to the database.
+
 7. Create the tables needed with the following MySQL queries:
 ```
 CREATE TABLE `COP4331`.`Users`
@@ -58,12 +59,12 @@ CREATE TABLE `COP4331`.`Contacts`
     PRIMARY KEY (`ID`)
 ) ENGINE = InnoDB;
 ```
-7. Populate the `Users` table with the account you would like to be avaliable for the website with the following query: 
+8. Populate the `Users` table with the account you would like to be avaliable for the website with the following query: 
 (You may change any of this information to your liking.)
 ```
 insert into Users (FirstName,LastName,Login,Password) VALUES ('First','Last','User','Test');
 ```
-8. Finally, in order to ensure that Apache and MySQL are running on your server, run `sudo systemctl start apache2` and `sudo systemctl restart mysql`. Once that is complete your website should be functioning properly.
+9. Finally, in order to ensure that Apache and MySQL are running on your server, run `sudo systemctl start apache2` and `sudo systemctl restart mysql`. Once that is complete your website should be functioning properly.
 
 ## How to Use
 
