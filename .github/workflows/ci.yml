@@ -21,6 +21,10 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+      - name: Install Packages
+        run: |
+          npm install
+
       - name: Run Eslint
         run: |
           npx eslint .
