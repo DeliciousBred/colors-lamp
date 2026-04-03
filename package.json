@@ -1,0 +1,18 @@
+{
+  "name": "colors-lamp-lint",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeliciousBred/colors-lamp.git"
+  },
+  "license": "ISC",
+  "author": "Andrew Reyes",
+  "devDependencies": {
+    "@eslint/css": "^1.1.0",
+    "@eslint/js": "^10.0.1",
+    "@html-eslint/eslint-plugin": "^0.58.1",
+    "@html-eslint/parser": "^0.58.1",
+    "eslint": "^10.1.0",
+    "globals": "^17.4.0"
+  }
+}
