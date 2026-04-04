@@ -8,11 +8,7 @@
   "license": "ISC",
   "author": "Andrew Reyes",
   "devDependencies": {
-    "@eslint/css": "^1.1.0",
-    "@eslint/js": "^10.0.1",
-    "@html-eslint/eslint-plugin": "^0.58.1",
-    "@html-eslint/parser": "^0.58.1",
-    "eslint": "^10.1.0",
-    "globals": "^17.4.0"
+    "@biomejs/biome": "^2.4.10",
+    "biome": "^0.3.3"
   }
 }

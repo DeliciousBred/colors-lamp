@@ -27,4 +27,4 @@ jobs:
 
       - name: Run Eslint
         run: |
-          npx eslint .
+          npx biome eslint .
