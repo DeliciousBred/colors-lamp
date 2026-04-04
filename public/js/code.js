@@ -5,6 +5,7 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function doLogin()
 {
 	userId = 0;
@@ -58,6 +59,7 @@ function doLogin()
 
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function saveCookie()
 {
 	const minutes = 20;
@@ -66,6 +68,7 @@ function saveCookie()
 	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function readCookie()
 {
 	userId = -1;
@@ -99,6 +102,7 @@ function readCookie()
 	}
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function doLogout()
 {
 	userId = 0;
@@ -108,6 +112,7 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function addColor()
 {
 	const newColor = document.getElementById("colorText").value;
@@ -139,6 +144,7 @@ function addColor()
 	
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function searchColor()
 {
 	const srch = document.getElementById("searchText").value;
