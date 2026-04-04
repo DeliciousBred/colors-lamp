@@ -21,8 +21,8 @@ function doLogin()
 	const tmp = {login:login,password:password};
 //	var tmp = {login:login,password:hash};
 	const jsonPayload = JSON.stringify( tmp );
-	
-	const url = urlBase + '/Login.' + extension;
+
+	const url = `${urlBase}/Login.${extension}`;
 
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -59,13 +59,12 @@ function doLogin()
 
 }
 
-// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function saveCookie()
 {
 	const minutes = 20;
 	const date = new Date();
-	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	date.setTime(date.getTime()+(minutes*60*1000));
+	document.cookie = `firstName=${firstName},lastName=${lastName},userId=${userId};expires=${date.toGMTString()}`;
 }
 
 // biome-ignore lint/correctness/noUnusedVariables: function used in html file
@@ -88,7 +87,7 @@ function readCookie()
 		}
 		else if( tokens[0] === "userId" )
 		{
-			userId = parseInt( tokens[1].trim() );
+			userId = parseInt( tokens[1].trim(), 10 );
 		}
 	}
 	
@@ -121,7 +120,7 @@ function addColor()
 	const tmp = {color:newColor,userId:userId};
 	const jsonPayload = JSON.stringify( tmp );
 
-	const url = urlBase + '/AddColor.' + extension;
+	const url = `${urlBase}/AddColor.${extension}`;
 	
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -155,7 +154,7 @@ function searchColor()
 	const tmp = {search:srch,userId:userId};
 	const jsonPayload = JSON.stringify( tmp );
 
-	const url = urlBase + '/SearchColors.' + extension;
+	const url = `${urlBase}/SearchColors.${extension}`;
 	
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
