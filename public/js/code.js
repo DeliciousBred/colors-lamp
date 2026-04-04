@@ -5,7 +5,7 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
-function doLogin()
+function doLogin() // eslint-disable-line no-unused-vars
 {
 	userId = 0;
 	firstName = "";
@@ -58,7 +58,7 @@ function doLogin()
 
 }
 
-function saveCookie()
+function saveCookie() // eslint-disable-line no-unused-vars
 {
 	let minutes = 20;
 	let date = new Date();
@@ -66,7 +66,7 @@ function saveCookie()
 	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
 }
 
-function readCookie()
+function readCookie() // eslint-disable-line no-unused-vars
 {
 	userId = -1;
 	let data = document.cookie;
@@ -99,7 +99,7 @@ function readCookie()
 	}
 }
 
-function doLogout()
+function doLogout() // eslint-disable-line no-unused-vars
 {
 	userId = 0;
 	firstName = "";
@@ -108,7 +108,7 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
-function addColor()
+function addColor()// eslint-disable-line no-unused-vars
 {
 	let newColor = document.getElementById("colorText").value;
 	document.getElementById("colorAddResult").innerHTML = "";
@@ -139,7 +139,7 @@ function addColor()
 	
 }
 
-function searchColor()
+function searchColor() // eslint-disable-line no-unused-vars
 {
 	let srch = document.getElementById("searchText").value;
 	document.getElementById("colorSearchResult").innerHTML = "";
