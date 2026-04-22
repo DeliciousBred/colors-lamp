@@ -5,7 +5,7 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
-function doLogin()
+export function doLogin(url = "")
 {
 	userId = 0;
 	firstName = "";
@@ -20,8 +20,8 @@ function doLogin()
 	const tmp = {login:login,password:password};
 //	var tmp = {login:login,password:hash};
 	const jsonPayload = JSON.stringify( tmp );
-	
-	const url = urlBase + '/Login.' + extension;
+
+	if(url === "") url = urlBase + '/Login.' + extension;
 
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -38,13 +38,13 @@ function doLogin()
 				if( userId < 1 )
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-					return;
+					return userId;
 				}
 		
 				firstName = jsonObject.firstName;
 				lastName = jsonObject.lastName;
 
-				saveCookie();
+				saveCookie(firstName, lastName, userId);
 	
 				window.location.href = "color.html";
 			}
@@ -56,9 +56,10 @@ function doLogin()
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
+	return -1;
 }
 
-function saveCookie()
+export function saveCookie(firstName, lastName, userId)
 {
 	const minutes = 20;
 	const date = new Date();
