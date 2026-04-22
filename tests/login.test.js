@@ -1,17 +1,11 @@
-import { doLogin } from "/public/js/code.js";
+import request from "supertest";
 
 describe("POST /LAMPAPI/Login.php", () => {
   it("should return success", async () => {
 
-    const response = await fetch("http://localhost:8000/Login.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        login: "Test",
-        password: "test"
-      })
+    const response = await request("http://localhost:8000").post("/Login.php").set("Content-Type", "application/json").send({
+      login: "Test",
+      password: "test",
     });
 
     console.log(response.body);
