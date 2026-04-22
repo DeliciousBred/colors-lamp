@@ -8,10 +8,10 @@ describe("POST /LAMPAPI/Login.php", () => {
       password: "test",
     });
 
-    console.log(response);
+    const body = response.body;
 
-    //const userId = doLogin("http://localhost:8000/Login.php", "Test", "test");
-
-    //console.log(userId);
+    expect(body.firstName).toBe("First");
+    expect(body.lastName).toBe("Last");
+    expect(body.id).toBe(1);
   });
 });
