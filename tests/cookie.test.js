@@ -1,7 +1,7 @@
 import {saveCookie} from "../public/js/code.js";
 
 describe("saveCookie function", () => {
-  it("sets document.cookie to the currect new cookie", () => {
+  it("sets document.cookie to the correct new cookie", () => {
     saveCookie("Test", "User", 1);
 
     console.log(document.cookie);
