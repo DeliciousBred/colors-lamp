@@ -3,7 +3,7 @@ import request from "supertest";
 describe("POST /LAMPAPI/Login.php", () => {
   it("should return success", async () => {
 
-    const response = await request("http://localhost:8000").post("/Login.php").set("Content-Type", "application/json").send({
+    const response = await request("http://localhost:8000").post("/LAMPAPI/Login.php").set("Content-Type", "application/json").send({
       login: "Test",
       password: "test",
     });
