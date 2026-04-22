@@ -68,4 +68,4 @@ jobs:
 
       - name: Run Unit/Integration Testing
         run: |
-          npx NODE_OPTIONS=--experimental-vm-modules jest
+          NODE_OPTIONS=--experimental-vm-modules npx jest
