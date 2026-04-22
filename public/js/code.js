@@ -25,18 +25,26 @@ export function doLogin(url = "", login = "", password = "")
 
   if(url === "") url = `${urlBase}/Login.${extension}`;
 
+	console.log("Start");
+
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	console.log("Continue 1");
+
 	try
-	{
+	{e
 		xhr.onreadystatechange = function() 
 		{
+			console.log("Response");
 			if (this.readyState === 4 && this.status === 200)
 			{
+				console.log("Good!");
 				const jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
-		
+
+				console.log("Id Obtained");
 				if( userId < 1 )
 				{		
 					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
@@ -45,6 +53,7 @@ export function doLogin(url = "", login = "", password = "")
 		
 				firstName = jsonObject.firstName;
 				lastName = jsonObject.lastName;
+				console.log("Names Obtained");
 
 				saveCookie(firstName, lastName, userId);
 	
@@ -55,6 +64,7 @@ export function doLogin(url = "", login = "", password = "")
 	}
 	catch(err)
 	{
+		console.log("Error!");
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 

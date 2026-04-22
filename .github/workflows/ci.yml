@@ -67,10 +67,10 @@ jobs:
 
       - name: Initiate Database Schema
         run: |
-          mysql -h 127.0.0.1 -u root -proot -e "SET GLOBAL connect_timeout=600;"
-          mysql -h 127.0.0.1 -u root -proot -e "SET GLOBAL wait_timeout=28800;"
           mysql -h 127.0.0.1 --user=root --password=root COP4331 < ./schema.sql
           mysql -h 127.0.0.1 --user=root --password=root COP4331 -e "insert into Users (FirstName,LastName,Login,Password) VALUES ('First','Last','Test','test');"
+          mysql -h 127.0.0.1 --user=root --password=root COP4331 -e "SHOW DATABASES;"
+          mysql -h 127.0.0.1 --user=root --password=root COP4331 -e "SHOW TABLES FROM COP4331;"
 
       - name: Host PHP Locally
         run: |
