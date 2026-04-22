@@ -1,6 +1,7 @@
 {
   "name": "colors-lamp-lint",
   "version": "1.0.0",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DeliciousBred/colors-lamp.git"
@@ -9,6 +10,11 @@
   "author": "Andrew Reyes",
   "devDependencies": {
     "@biomejs/biome": "^2.4.10",
-    "biome": "^0.3.3"
+    "biome": "^0.3.3",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }
