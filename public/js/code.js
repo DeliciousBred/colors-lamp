@@ -6,7 +6,7 @@ let firstName = "";
 let lastName = "";
 
 // biome-ignore lint/correctness/noUnusedVariables: function used in html file
-function doLogin(url = "")
+export function doLogin(url = "")
 {
 	userId = 0;
 	firstName = "";
