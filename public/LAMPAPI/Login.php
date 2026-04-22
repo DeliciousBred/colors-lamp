@@ -10,7 +10,7 @@
 	$host = "localhost"; // Insert host here
 	$user = "root"; // Insert user here
 	$password = "1234"; // Insert password
-	$database = "test"; // Insert database here
+	$database = "COP4331"; // Insert database here
 
 	$conn = new mysqli($host, $user, $password, $database); 	
 	if( $conn->connect_error )
