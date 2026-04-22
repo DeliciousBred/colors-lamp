@@ -34,7 +34,7 @@ export function doLogin(url = "", login = "", password = "")
 	console.log("Continue 1");
 
 	try
-	{e
+	{
 		xhr.onreadystatechange = function() 
 		{
 			console.log("Response");
@@ -47,7 +47,7 @@ export function doLogin(url = "", login = "", password = "")
 				console.log("Id Obtained");
 				if( userId < 1 )
 				{
-					resultElement = document.getElementById("loginResult")
+					resultElement = document.getElementById("loginResult");
 					if(resultElement != null) resultElement.innerHTML = "User/Password combination incorrect";
 					return userId;
 				}
