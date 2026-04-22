@@ -8,7 +8,7 @@ describe("POST /LAMPAPI/Login.php", () => {
       password: "test",
     });
 
-    console.log(response.body);
+    console.log(await response.json());
 
     //const userId = doLogin("http://localhost:8000/Login.php", "Test", "test");
 
