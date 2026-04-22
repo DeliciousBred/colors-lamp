@@ -5,7 +5,8 @@ let userId = 0;
 let firstName = "";
 let lastName = "";
 
-export function doLogin(url = "")
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
+function doLogin(url = "")
 {
 	userId = 0;
 	firstName = "";
@@ -21,7 +22,7 @@ export function doLogin(url = "")
 //	var tmp = {login:login,password:hash};
 	const jsonPayload = JSON.stringify( tmp );
 
-	if(url === "") url = urlBase + '/Login.' + extension;
+  if(url === "") url = `${urlBase}/Login.${extension}`;
 
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -30,7 +31,7 @@ export function doLogin(url = "")
 	{
 		xhr.onreadystatechange = function() 
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState === 4 && this.status === 200)
 			{
 				const jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
@@ -63,30 +64,31 @@ export function saveCookie(firstName, lastName, userId)
 {
 	const minutes = 20;
 	const date = new Date();
-	date.setTime(date.getTime()+(minutes*60*1000));	
-	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
+	date.setTime(date.getTime()+(minutes*60*1000));
+	document.cookie = `firstName=${firstName},lastName=${lastName},userId=${userId};expires=${date.toGMTString()}`;
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function readCookie()
 {
 	userId = -1;
 	const data = document.cookie;
 	const splits = data.split(",");
-	for(var i = 0; i < splits.length; i++) 
+	for(let i = 0; i < splits.length; i++)
 	{
 		const thisOne = splits[i].trim();
 		const tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
+		if( tokens[0] === "firstName" )
 		{
 			firstName = tokens[1];
 		}
-		else if( tokens[0] == "lastName" )
+		else if( tokens[0] === "lastName" )
 		{
 			lastName = tokens[1];
 		}
-		else if( tokens[0] == "userId" )
+		else if( tokens[0] === "userId" )
 		{
-			userId = parseInt( tokens[1].trim() );
+			userId = parseInt( tokens[1].trim(), 10 );
 		}
 	}
 	
@@ -100,6 +102,7 @@ function readCookie()
 	}
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function doLogout()
 {
 	userId = 0;
@@ -109,6 +112,7 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function addColor()
 {
 	const newColor = document.getElementById("colorText").value;
@@ -117,7 +121,7 @@ function addColor()
 	const tmp = {color:newColor,userId:userId};
 	const jsonPayload = JSON.stringify( tmp );
 
-	const url = urlBase + '/AddColor.' + extension;
+	const url = `${urlBase}/AddColor.${extension}`;
 	
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -126,7 +130,7 @@ function addColor()
 	{
 		xhr.onreadystatechange = function() 
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState === 4 && this.status === 200)
 			{
 				document.getElementById("colorAddResult").innerHTML = "Color has been added";
 			}
@@ -140,6 +144,7 @@ function addColor()
 	
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: function used in html file
 function searchColor()
 {
 	const srch = document.getElementById("searchText").value;
@@ -150,7 +155,7 @@ function searchColor()
 	const tmp = {search:srch,userId:userId};
 	const jsonPayload = JSON.stringify( tmp );
 
-	const url = urlBase + '/SearchColors.' + extension;
+	const url = `${urlBase}/SearchColors.${extension}`;
 	
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -159,7 +164,7 @@ function searchColor()
 	{
 		xhr.onreadystatechange = function() 
 		{
-			if (this.readyState == 4 && this.status == 200) 
+			if (this.readyState === 4 && this.status === 200)
 			{
 				document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
 				const jsonObject = JSON.parse( xhr.responseText );
