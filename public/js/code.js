@@ -16,7 +16,8 @@ export function doLogin(url = "", login = "", password = "")
 	if(password === "") password = document.getElementById("loginPassword").value;
 //	var hash = md5( password );
 	
-	document.getElementById("loginResult").innerHTML = "";
+	const resultElement = document.getElementById("loginResult");
+	if(resultElement != null) resultElement.innerHTML = "";
 
 	const tmp = {login:login,password:password};
 //	var tmp = {login:login,password:hash};
