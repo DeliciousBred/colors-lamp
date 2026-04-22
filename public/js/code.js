@@ -16,7 +16,7 @@ export function doLogin(url = "", login = "", password = "")
 	if(password === "") password = document.getElementById("loginPassword").value;
 //	var hash = md5( password );
 	
-	const resultElement = document.getElementById("loginResult");
+	let resultElement = document.getElementById("loginResult");
 	if(resultElement != null) resultElement.innerHTML = "";
 
 	const tmp = {login:login,password:password};
@@ -46,8 +46,9 @@ export function doLogin(url = "", login = "", password = "")
 
 				console.log("Id Obtained");
 				if( userId < 1 )
-				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+				{
+					resultElement = document.getElementById("loginResult")
+					if(resultElement != null) resultElement.innerHTML = "User/Password combination incorrect";
 					return userId;
 				}
 		
@@ -64,8 +65,9 @@ export function doLogin(url = "", login = "", password = "")
 	}
 	catch(err)
 	{
-		console.log("Error!");
-		document.getElementById("loginResult").innerHTML = err.message;
+		console.log("Error: " + err.message);
+		resultElement = document.getElementById("loginResult")
+		if(resultElement != null) resultElement.innerHTML = err.message;
 	}
 
 	return -1;
