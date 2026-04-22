@@ -7,7 +7,7 @@
 	$firstName = "";
 	$lastName = "";
 
-	$host = "localhost"; // Insert host here
+	$host = "127.0.0.1"; // Insert host here
 	$user = "root"; // Insert user here
 	$password = "root"; // Insert password
 	$database = "COP4331"; // Insert database here
