@@ -6,14 +6,14 @@ let firstName = "";
 let lastName = "";
 
 // biome-ignore lint/correctness/noUnusedVariables: function used in html file
-export function doLogin(url = "")
+export function doLogin(url = "", login = "", password = "")
 {
 	userId = 0;
 	firstName = "";
 	lastName = "";
 	
-	const login = document.getElementById("loginName").value;
-	const password = document.getElementById("loginPassword").value;
+	if(login === "") login = document.getElementById("loginName").value;
+	if(password === "") password = document.getElementById("loginPassword").value;
 //	var hash = md5( password );
 	
 	document.getElementById("loginResult").innerHTML = "";
