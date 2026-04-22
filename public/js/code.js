@@ -6,55 +6,45 @@ let firstName = "";
 let lastName = "";
 
 // biome-ignore lint/correctness/noUnusedVariables: function used in html file
-export function doLogin(url = "", login = "", password = "")
+export function doLogin()
 {
 	userId = 0;
 	firstName = "";
 	lastName = "";
 	
-	if(login === "") login = document.getElementById("loginName").value;
-	if(password === "") password = document.getElementById("loginPassword").value;
+	const login = document.getElementById("loginName").value;
+	const password = document.getElementById("loginPassword").value;
 //	var hash = md5( password );
-	
-	let resultElement = document.getElementById("loginResult");
-	if(resultElement != null) resultElement.innerHTML = "";
+
+	document.getElementById("loginResult").innerHTML = "";
 
 	const tmp = {login:login,password:password};
 //	var tmp = {login:login,password:hash};
 	const jsonPayload = JSON.stringify( tmp );
 
-  if(url === "") url = `${urlBase}/Login.${extension}`;
-
-	console.log("Start");
+  const url = `${urlBase}/Login.${extension}`;
 
 	const xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 
-	console.log("Continue 1");
-
 	try
 	{
 		xhr.onreadystatechange = function() 
 		{
-			console.log("Response");
 			if (this.readyState === 4 && this.status === 200)
 			{
-				console.log("Good!");
 				const jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
 
-				console.log("Id Obtained");
 				if( userId < 1 )
 				{
-					resultElement = document.getElementById("loginResult");
-					if(resultElement != null) resultElement.innerHTML = "User/Password combination incorrect";
+					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 					return userId;
 				}
 		
 				firstName = jsonObject.firstName;
 				lastName = jsonObject.lastName;
-				console.log("Names Obtained");
 
 				saveCookie(firstName, lastName, userId);
 	
@@ -65,9 +55,7 @@ export function doLogin(url = "", login = "", password = "")
 	}
 	catch(err)
 	{
-		console.log("Error: " + err.message);
-		resultElement = document.getElementById("loginResult")
-		if(resultElement != null) resultElement.innerHTML = err.message;
+		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
 	return -1;
