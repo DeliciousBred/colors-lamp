@@ -7,10 +7,10 @@
 	$firstName = "";
 	$lastName = "";
 
-	$host = ""; // Insert host here
-	$user = ""; // Insert user here
-	$password = ""; // Insert password
-	$database = ""; // Insert database here
+	$host = "localhost"; // Insert host here
+	$user = "root"; // Insert user here
+	$password = "1234"; // Insert password
+	$database = "test"; // Insert database here
 
 	$conn = new mysqli($host, $user, $password, $database); 	
 	if( $conn->connect_error )
