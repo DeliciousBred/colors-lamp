@@ -28,3 +28,35 @@ jobs:
       - name: Run Eslint
         run: |
           npx biome eslint .
+
+  tests:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: 1234
+          MYSQL_DATABASE: COP4331
+        ports:
+          - 3306:3306
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Initiate Database Schema
+        run: |
+          mysql -h 127.0.0.1 -u root -proot < ./schema.sql
+          mysql -h 127.0.0.1 -u root -proot -e "insert into Users (FirstName,LastName,Login,Password) VALUES ('First','Last','Test','test');"
+
+      - name: Host PHP Locally
+        run: |
+          php -S localhost:8000 -t ./public
+
+      - name: Run Unit/Integration Testing
+        run: |
+          npx NODE_OPTIONS=--experimental-vm-modules jest
+          
