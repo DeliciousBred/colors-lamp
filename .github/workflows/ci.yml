@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ "main", "CI-tests" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -72,7 +72,6 @@ jobs:
           mysql -h 127.0.0.1 --user=root --password=root COP4331 -e "SHOW DATABASES;"
           mysql -h 127.0.0.1 --user=root --password=root COP4331 -e "SHOW TABLES FROM COP4331;"
           mysql -h 127.0.0.1 --user=root --password=root COP4331 -e "SELECT * FROM COP4331.Users"
-          
 
       - name: Host PHP Locally
         run: |
